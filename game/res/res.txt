@@ -1,0 +1,9 @@
+#a null image error image
+null_img.png
+
+#required
+btns_radio_select.png
+bar.png
+btn_select_act.png
+btn_select_inact.png
+btn_select_invalid.png
