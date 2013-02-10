@@ -7,3 +7,6 @@ bar.png
 btn_select_act.png
 btn_select_inact.png
 btn_select_invalid.png
+janitor_fron_dark.png
+janitor_fron_light.png
+janitor_fron_split.png

@@ -116,6 +116,14 @@ void GameState::addSprite(Sprite* sprite){
 	sprites.push_back(sprite);
 }
 
+void GameState::removeSprite(std::string index){
+	for(int i = 0; i < sprites.size(); i++){
+		if(sprites.at(i)->getIndex() == index){
+			sprites.erase(sprites.begin() + i);
+		}
+	}
+}
+
 void GameState::addSprite(std::string index, int xpos, int ypos, std::string src, int width, int height){
 	sf::Sprite * sprite = new sf::Sprite();
 
