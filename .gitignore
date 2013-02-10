@@ -10,3 +10,4 @@ ipch/
 *.opensdf
 *.suo
 *.db
+*.exe
