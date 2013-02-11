@@ -42,6 +42,7 @@ void StateHandler::setState(int index){
 }
 
 void StateHandler::setState(std::string index){
+	
 	for(int i = 0; i < states.size(); i++){
 		if(states.at(i)->getIndex() == index){
 			currentState = states.at(i);
@@ -55,6 +56,9 @@ GameState* StateHandler::getCurrentState(){
 }
 
 void StateHandler::setupGui(void){
+
+	GameState * introState = new IntroState(this, window);
+	states.push_back(introState);
 
 	GameState * titleScreen = new GuiTitleScreen(this, window);
 	states.push_back(titleScreen);

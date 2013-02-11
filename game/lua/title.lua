@@ -28,13 +28,16 @@ end
 
 function event(target, type)
 
+	if target == "mousedown" or target == "keydown" then
+		print("seting state to intro");
+		callState("intro_state");
+	end
+
 	if type == "arrived" then
 		if target == "right_dark" or target == "left_light" then
 			stage = stage + 1;
 		end
 	end
-
-	
 
 	if stage == 3 and type == "arrived" then
 		linearInterpolate("cts", 100, 490, 10);
