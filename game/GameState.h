@@ -26,7 +26,7 @@ public:
 	void addPolySprite(std::string index, int x, int y, int color, int length, int * vertDat);
 	void addStringSprite(std::string index, int x, int y, int size, std::string text, int color);
 	void addSprite(Sprite*);
-	void addSprite(std::string, int x, int y, std::string tex, int w, int h);
+	void addSprite(std::string, int x, int y, std::string tex, int w, int h, int clipX, int clipY, int clipWidth, int clipHeight);
 	void interpolateSprite(std::string target = "null", int destinationX = 0, int destinationY = 0, float speed = 1);
 	void setState(std::string);
 	std::string getProp(std::string target, std::string type);

@@ -140,32 +140,35 @@ int luaGetProp(lua_State* l){
 }
 
 int luaAddSprite(lua_State* l){
-	int xPos = 0, yPos = 0, width = 1, height = 1;
+	int xPos = 0, yPos = 0, width = 0, height = 0, clipX = 0, clipY = 0, clipWidth = 0, clipHeight = 0;
 	std::string index = "null";
 	std::string texture = "null";
 
 	switch (lua_gettop(l)){
-	case 6:{
+	case 10:
+		clipHeight = lua_tonumber(l, 10);
+	case 9:
+		clipWidth = lua_tonumber(l, 9);
+	case 8:
+		clipY = lua_tonumber(l, 8);
+	case 7:
+		clipX = lua_tonumber(l, 7);
+	case 6:
 		height = lua_tonumber(l, 6);
-			}
-	case 5:{
+	case 5:
 		width = lua_tonumber(l, 5);
-			}
-	case 4:{
+	case 4:
 		texture = lua_tostring(l, 4);
-			}
-	case 3:{
+	case 3:
 		yPos = lua_tonumber(l, 3);
-		   }
-	case 2:{
+	case 2:
 		xPos = lua_tonumber(l, 2);
-		   }
-	case 1:{
+	case 1:
 		index = lua_tostring(l, 1);
-		   }
+		   
 	}
 
-	luaInterface->addSprite(index, xPos, yPos, texture, width, height);
+	luaInterface->addSprite(index, xPos, yPos, texture, width, height, clipX, clipY, clipWidth, clipHeight);
 	return 0;
 }
 

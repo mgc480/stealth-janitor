@@ -8,7 +8,7 @@ sf::Text * test;
 bool transition = false;
 float speed = 0.0f;
 
-GuiTitleScreen::GuiTitleScreen(StateHandler* handler, sf::RenderWindow * window) : GameState("title_screen", "lua/test.lua", handler, window){
+GuiTitleScreen::GuiTitleScreen(StateHandler* handler, sf::RenderWindow * window) : GameState("title_screen", "lua/title.lua", handler, window){
 
 }
 

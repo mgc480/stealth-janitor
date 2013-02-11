@@ -25,7 +25,6 @@ void GameState::mouseDown(int btn){
 	sf::Vector2i mousePos = sf::Mouse::getPosition(*window);
 	for(int i = 0; i < sprites.size(); i++){
 		if(sprites.at(i)->isCollision(mousePos.x, mousePos.y)){
-			std::printf("clicked\n");
 			luaInterface->luaEvent(sprites.at(i)->getIndex(), "clicked");
 		}
 	}
@@ -124,11 +123,15 @@ void GameState::removeSprite(std::string index){
 	}
 }
 
-void GameState::addSprite(std::string index, int xpos, int ypos, std::string src, int width, int height){
+void GameState::addSprite(std::string index, int xpos, int ypos, std::string src, int width, int height, int clipX, int clipY, int clipWidth, int clipHeight){
 	sf::Sprite * sprite = new sf::Sprite();
 
 	sprite->setTexture(*stateHandler->getTexture(src));
 	sprite->setPosition(xpos, ypos);
+
+	if(clipWidth != 0 && clipHeight != 0){
+		sprite->setTextureRect(sf::IntRect(clipX, clipY, clipWidth, clipHeight));
+	}
 
 	Sprite * spr = new Sprite(index, sprite, width, height);
 
