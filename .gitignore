@@ -12,3 +12,6 @@ ipch/
 *.db
 *.exe
 *.dll
+*.classpath
+*.project
+bin/
